@@ -11,13 +11,15 @@ import router from './router'
 import '../static/css/reset.css'
 //解决移动端3ms延迟--需要先执行安装库的命令--npm install fastclick -D
 import FastClick from 'fastclick'
+import store from './store'
 
 FastClick.attach(document.body)
 
 let vm = new Vue({
 	el: '#app',
 	render: h => h(App),
-	router
+	router,//使用上vue-router
+  store,
 })
 
 Vue.use({

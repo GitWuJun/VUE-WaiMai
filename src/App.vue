@@ -1,7 +1,7 @@
 <template>
 	<div id="app">
 		<router-view>
-			
+
 		</router-view>
 		<FooterGuide v-show="$route.meta.showFooter"/>
 	</div>
@@ -20,10 +20,13 @@ export default {
 	components:{
 		FooterGuide
 	},
-	// async mounted(){
-	// 	const result = await reqFoodTypes()
-	// 	console.log(result)
-	// }
+   mounted(){
+		// const result = reqFoodTypes()
+		// console.log(result)
+
+     //调用vuex的action异步获取数据，然后将数据存储在vuex的state中，再通过mapstate将state中的值映射出来进行展示
+    this.$store.dispatch('getAddress')
+	}
 }
 </script>
 
