@@ -2,12 +2,15 @@
 	<div class="msite">
 				<!--首页头部-->
 				<HeaderTop :title="address.name">
-					<span slot="left" class="header_search">
+					<router-link slot="left" class="header_search" to="/search">
 						<i class="iconfont icon-sousuo"></i>
-					</span>
-					<span slot="right" class="header_login">
-						<span class="header_login_text">登录|注册</span>
-					</span>
+					</router-link>
+					<router-link slot="right" class="header_login" :to="userInfo._id?'/userinfo':'/login'">
+						<span class="header_login_text" v-if="!userInfo._id">登陆/注册</span>
+						<span class="header_login_text" v-else>
+              <i class="iconfont icon-person"></i>
+            </span>
+					</router-link>
 				</HeaderTop>
 
 
@@ -62,7 +65,7 @@ export default {
 	},
   computed:{
 	  //使用mapstate将vuex中的state属性映射出来
-	  ...mapState(['address','categorys']),
+	  ...mapState(['address','categorys','userInfo']),
 
     //根据categorys一纬数组生成一个二维数组
     categoryArr(){
@@ -80,8 +83,6 @@ export default {
         }
         arr[i] = arr2
       }
-      console.log(arr)
-
       return arr
     }
   },

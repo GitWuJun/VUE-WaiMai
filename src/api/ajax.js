@@ -19,14 +19,12 @@ export default function ajax(url,data = {},type = 'GET') {
 			dataStr = dataStr.substring(0,dataStr.lastIndexOf('&'))
 			url = url + '?' +dataStr
 		}
-
 		//发送get请求
 		promise = axios.get(url)
 	}else{
 		//发送post请求
 		promise = axios.post(url,data)
 	}
-
 	promise.then(function(response){
 //成功后调用resolve()
 		resolve(response.data)
@@ -35,11 +33,5 @@ export default function ajax(url,data = {},type = 'GET') {
 //失败后调用reject()
 		reject(error)
 		})
-
-		
-
-		
 	})
-
-	
 }

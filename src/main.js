@@ -12,8 +12,15 @@ import '../static/css/reset.css'
 //解决移动端3ms延迟--需要先执行安装库的命令--npm install fastclick -D
 import FastClick from 'fastclick'
 import store from './store'
+import {Button} from 'mint-ui'
+import './mock/mockServer.js'  //加载mockserver即可
 
 FastClick.attach(document.body)
+
+
+
+//注册全局组件标签
+Vue.component(Button.name,Button)
 
 let vm = new Vue({
 	el: '#app',
