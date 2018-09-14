@@ -30,6 +30,17 @@ export default {
 
   },
 
+  //计算满意评论数量
+  positiveSize(state){
+    let count=0
+    state.ratings.forEach((rating)=>{
+      if (rating.rateType === 0){
+        count ++
+      }
+    })
+    return count
+  }
+
   // //计算还差多少可以起送
   // shortPrice(state){
   //   return state.info.deliveryPrice-this.totalPrice(state)

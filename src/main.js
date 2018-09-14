@@ -15,12 +15,23 @@ import store from './store'
 import {Button} from 'mint-ui'
 import './mock/mockServer.js'  //加载mockserver即可
 
+import VueLazyload from 'vue-lazyload'
+import loading from './common/imgs/loading.gif'
+
+//加载过滤器
+import './filters'
+
 FastClick.attach(document.body)
 
 
 
 //注册全局组件标签
 Vue.component(Button.name,Button)
+
+//使用vueload对图片进行懒加载
+Vue.use(VueLazyload, { // 内部自定义一个指令lazy
+  loading
+})
 
 let vm = new Vue({
 	el: '#app',
